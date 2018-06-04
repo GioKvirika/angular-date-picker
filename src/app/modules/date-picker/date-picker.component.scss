@@ -1,0 +1,136 @@
+.c-date-picker__container {
+  display: block;
+  position: relative;
+  margin: 1.28571em 0;
+  line-height: normal;
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.c-input__field {
+  background-color: #272727;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.02),
+    rgba(0, 0, 0, 0.02)
+  );
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05),
+    0 1px rgba(255, 255, 255, 0.05);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  border: 1px solid black;
+  font-size: 0.8125rem;
+  color: #7f7f7f;
+  cursor: pointer;
+  width: 150px;
+  border-radius: 2px;
+  border: 1px solid black;
+  font-size: 0.75rem;
+  padding: 0 10px;
+  height: 30px;
+  width: 150px;
+
+  &:focus {
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.08),
+      0 1px rgba(255, 255, 255, 0.05);
+    outline: none;
+  }
+}
+
+.c-date__container {
+  z-index: 10000;
+  width: 290px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  position: absolute;
+  display: none;
+  top: calc(100% + 5px);
+  left: 0;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.c-month__container {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #292929;
+  color: #7e7e7e;
+  border-top-left-radius: 0.25em;
+  border-top-right-radius: 0.25em;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+}
+
+.c-week__container {
+  background: #292929;
+  padding: 0 5px;
+}
+
+.c-day__container {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 5px;
+  background: #292929;
+}
+
+.c-year {
+  margin-left: 0.5em !important;
+}
+
+.c-day {
+  border-radius: 100%;
+
+  &:hover {
+    background: #fafafa;
+  }
+
+  &.is-selected {
+    background: #cf0100;
+    color: #fff;
+  }
+}
+
+.c-week-day,
+.c-day {
+  width: 2.5em;
+  padding: 0.625em 0;
+  text-align: center;
+  cursor: pointer;
+  color: #7e7e7e;
+}
+
+.c-arrow {
+  cursor: pointer;
+  fill: #7e7e7e;
+
+  &__left {
+    margin-left: 10px;
+  }
+
+  &__right {
+    margin-right: 10px;
+  }
+}
+
+.u-display__flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.calendar-icon {
+  position: absolute;
+  fill: #7e7e7e;
+  bottom: 0;
+  top: 0;
+  left: 150px;
+  margin: auto 0;
+}

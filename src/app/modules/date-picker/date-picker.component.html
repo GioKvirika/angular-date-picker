@@ -1,0 +1,48 @@
+<div class="c-date-picker__container">
+
+  <input type="text" class="c-input__field" [value]="result" (input)="onChange($event.target.value)" (click)="onShowCalendar($event)"
+    (focus)="onShowCalendar($event)" readonly />
+
+  <svg xmlns="http://www.w3.org/2000/svg" (click)="onShowCalendar($event)" class="calendar-icon" viewBox="0 0 512 512" width="15"
+    height="15">
+    <path d="M467 60h-15V45c0-24.813-20.187-45-45-45s-45 20.187-45 45v15h-60V45c0-24.813-20.187-45-45-45s-45 20.187-45 45v15h-62V45c0-24.813-20.187-45-45-45S60 20.187 60 45v15H45C20.187 60 0 80.187 0 105v362c0 24.813 20.187 45 45 45h422c24.813 0 45-20.187 45-45V105c0-24.813-20.187-45-45-45zm-75-15c0-8.271 6.729-15 15-15s15 6.729 15 15v60c0 8.271-6.729 15-15 15s-15-6.729-15-15V45zm-150 0c0-8.271 6.729-15 15-15s15 6.729 15 15v60c0 8.271-6.729 15-15 15s-15-6.729-15-15V45zM90 45c0-8.271 6.729-15 15-15s15 6.729 15 15v60c0 8.271-6.729 15-15 15s-15-6.729-15-15V45zm392 422c0 8.271-6.729 15-15 15H45c-8.271 0-15-6.729-15-15V212h452v255zm0-285H30v-77c0-8.271 6.729-15 15-15h15v15c0 24.813 20.187 45 45 45s45-20.187 45-45V90h62v15c0 24.813 20.187 45 45 45s45-20.187 45-45V90h60v15c0 24.813 20.187 45 45 45s45-20.187 45-45V90h15c8.271 0 15 6.729 15 15v77z"
+    />
+    <path d="M437 242H75c-8.284 0-15 6.716-15 15v180c0 8.284 6.716 15 15 15h362c8.284 0 15-6.716 15-15V257c0-8.284-6.716-15-15-15zM150 422H90v-60h60v60zm0-90H90v-60h60v60zm92 90h-62v-60h62v60zm0-90h-62v-60h62v60zm90 90h-60v-60h60v60zm0-90h-60v-60h60v60zm90 90h-60v-60h60v60zm0-90h-60v-60h60v60z"
+    />
+  </svg>
+
+  <div class="c-date__container" [ngClass]="{ 'is-active': showCalendar }">
+    <div class="c-month__container u-display__flex">
+      <svg xmlns="http://www.w3.org/2000/svg" (click)="updateMonth($event, 'dec')" class="c-arrow c-arrow__left" width="15" viewBox="0 0 292.359 292.359">
+        <path d="M222.979 5.424C219.364 1.807 215.08 0 210.132 0c-4.949 0-9.233 1.807-12.848 5.424L69.378 133.331c-3.615 3.617-5.424 7.898-5.424 12.847s1.809 9.233 5.424 12.847l127.906 127.907c3.614 3.617 7.898 5.428 12.848 5.428 4.948 0 9.232-1.811 12.847-5.428 3.617-3.614 5.427-7.898 5.427-12.847V18.271c-.001-4.949-1.81-9.229-5.427-12.847z"
+        />
+      </svg>
+
+      <div class="u-display__flex">
+        <span class="c-months">{{ months[month] }}</span>
+        <span class="c-year">{{ year }}</span>
+      </div>
+
+      <svg xmlns="http://www.w3.org/2000/svg" (click)="updateMonth($event, 'inc')" class="c-arrow c-arrow__right" width="15" viewBox="0 0 292.359 292.359">
+        <path d="M222.979 133.331L95.073 5.424C91.456 1.807 87.178 0 82.226 0s-9.233 1.807-12.85 5.424c-3.617 3.617-5.424 7.898-5.424 12.847v255.813c0 4.948 1.807 9.232 5.424 12.847 3.621 3.617 7.902 5.428 12.85 5.428 4.949 0 9.23-1.811 12.847-5.428l127.906-127.907c3.614-3.613 5.428-7.897 5.428-12.847 0-4.948-1.813-9.229-5.428-12.846z"
+        />
+      </svg>
+    </div>
+
+    <div class="c-week__container u-display__flex">
+      <span class="c-week-day">Sun</span>
+      <span class="c-week-day">Mon</span>
+      <span class="c-week-day">Tue</span>
+      <span class="c-week-day">Wed</span>
+      <span class="c-week-day">Thu</span>
+      <span class="c-week-day">Fri</span>
+      <span class="c-week-day">Sat</span>
+    </div>
+
+    <div class="c-day__container u-display__flex">
+      <span class="c-day" *ngFor="let day of days" [ngClass]="{ 'is-selected': day === currDay }" (click)="selectDay(day)">
+        {{ day }}
+      </span>
+    </div>
+  </div>
+</div>
